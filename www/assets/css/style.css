@@ -1,0 +1,19 @@
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: white;
+	z-index: 9999999;
+	transition: .5s;
+}
+.preloader img{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50%;
+	opacity: 0;
+	transition: .5s;
+}
