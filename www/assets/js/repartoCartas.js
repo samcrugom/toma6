@@ -46,6 +46,11 @@ function repartir(){
 	for (i = 0; i <= 9; i++) {
 		document.getElementById('baraja-el').innerHTML += "<li><img src='assets/rsc/img/cartas/"+jugadores[1][i]+".png' alt='"+jugadores[1][i]+"'/></li>";
 	}
+
+	//	PINTAR LAS CARTAS DE LA MESA
+	for (i = 0; i <= 3; i++) {
+		document.getElementById('cartasMesa').innerHTML += "<li><img src='assets/rsc/img/cartas/"+cartasMesa[i]+".png' alt='"+cartasMesa[i]+"'/></li>";
+	}
 };
 
 
