@@ -19,9 +19,15 @@
 </head>
 <body>
 
-	<div class="container">
+	<div class="container" id="container">
+		<span id="tiempo1">5</span>
 		<section id="mesa">
-			<ul id="cartasMesa"></ul>
+			<ul id="cartasMesa">
+				<ul id="cartasMesa0"></ul>
+				<ul id="cartasMesa1"></ul>
+				<ul id="cartasMesa2"></ul>
+				<ul id="cartasMesa3"></ul>
+			</ul>
 		</section>
 		
 		<!--
@@ -49,12 +55,12 @@
 				<span id="add">Add items</span>
 			</nav>
 		-->
-
+<!--
 			<div class="baraja-demo">
 				<ul id="baraja-el" class="baraja-container"></ul>
 			</div>
 
-			<!--
+			
 			<nav class="actions light">
 				<span id="nav-prev">&lt;</span>
 				<span id="nav-next">&gt;</span>
@@ -70,6 +76,12 @@
 	<script type="text/javascript" src="assets/js/jquery.baraja.js"></script>
 	<script type="text/javascript" src="assets/js/repartoCartas.js"></script>
 	<script type="text/javascript">
+		repartir();
+	</script>
+	<script type="text/javascript" src="assets/js/script.js"></script>
+	<script type="text/javascript">
+		
+
 		$(function() {
 
 			var $el = $( '#baraja-el' ),

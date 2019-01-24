@@ -136,7 +136,7 @@
 			$items.each( function( i ) {
 
 				$( this ).css( 'z-index', self.itemZIndexMin + self.itemsCount - 1 - i );
-
+				
 			} );
 
 		},
