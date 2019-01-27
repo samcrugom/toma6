@@ -8,6 +8,8 @@ var cartasTurno = [];
 
 function cuenta(){
 	if (tiempo <= 0) {
+
+		clearInterval(contador);
 		alert("Has elegido la carta = "+cartaElegida);
 		
 		
@@ -18,7 +20,7 @@ function cuenta(){
 
 
 				/*	2º MÉTODO:	Elimino la carta elegida de mi mazo	*/
-				
+		
 		pintarCartasMano();
 
 		turnoCartas();
@@ -27,7 +29,7 @@ function cuenta(){
 		indiceCartaElegida = 0;
 		cartaElegida = jugadores[1][indiceCartaElegida];
 
-		tiempo = 7;
+		tiempo = 0;
 		$("#tiempo1").css("color", "black");
 	}
 
@@ -100,9 +102,12 @@ function cuenta(){
 	document.getElementById('tiempo1').innerHTML = tiempo;
 }
 
-setInterval(function(){
+
+var contador = setInterval(function(){
 	cuenta();
 }, 1000);
+
+	
 	
 
 
@@ -175,6 +180,9 @@ function turnoCartas(){
 	cartasTurno.sort( comparar );
 	console.log(cartasTurno);
 
+	//	SE COLOCAN LAS CARTAS ENCIMA DE LA MESA
+
+	colocarCartasEnMesa();
 
 	
 
@@ -182,8 +190,286 @@ function turnoCartas(){
 	// Al final del turno, volvemos a dejar las cartas anteriormente elegidas y colocadas en la mesa, vacío, a la espera del nuevo turno.
 
 	//alert(cartasTurno);
-	cartasTurno = [];
+	//cartasTurno = [];
 }
+
+
+
+function colocarCartasEnMesa(){
+	//	Guardo en variables las cartas de arriba de cada mazo de la mesa
+	var mesa0 = "";
+	var mesa1 = "";
+	var mesa2 = "";
+	var mesa3 = "";
+
+	cartasMesa[0].forEach(function(valor, indice, array){
+		mesa0 = valor;
+	});
+	cartasMesa[1].forEach(function(valor, indice, array){
+		mesa1 = valor;
+	});
+	cartasMesa[2].forEach(function(valor, indice, array){
+		mesa2 = valor;
+	});
+	cartasMesa[3].forEach(function(valor, indice, array){
+		mesa3 = valor;
+	});
+
+		
+
+	function pintarCartasUnaAUna(){
+		var cartita = cartasTurno[0];
+		auxiliar = [mesa0, mesa1, mesa2, mesa3, cartita];
+		function comparar (a, b){ return a - b; }
+		auxiliar.sort( comparar );
+		console.log(cartasTurno);
+		console.log(auxiliar);
+
+		if (auxiliar.indexOf(cartita, 0) == 1) {
+			if (auxiliar[0] == mesa0) {
+				cartasMesa[0].push(cartita);
+				//alert(cartita+' va en el mazo 0');
+				actualizarMesa0();
+			}else if (auxiliar[0] == mesa1) {
+				cartasMesa[1].push(cartita);
+				//alert(cartita+' va en el mazo 1');
+				actualizarMesa1();
+			}else if (auxiliar[0] == mesa2) {
+				cartasMesa[2].push(cartita);
+				//alert(cartita+' va en el mazo 2');
+				actualizarMesa2();
+			}else if (auxiliar[0] == mesa3) {
+				cartasMesa[3].push(cartita);
+				//alert(cartita+' va en el mazo 3');
+				actualizarMesa3();
+			}
+		}else if (auxiliar.indexOf(cartita, 0) == 2) {
+			if (auxiliar[1] == mesa0) {
+				cartasMesa[0].push(cartita);
+				//alert(cartita+' va en el mazo 0');
+				actualizarMesa0();
+			}else if (auxiliar[1] == mesa1) {
+				cartasMesa[1].push(cartita);
+				//alert(cartita+' va en el mazo 1');
+				actualizarMesa1();
+			}else if (auxiliar[1] == mesa2) {
+				cartasMesa[2].push(cartita);
+				//alert(cartita+' va en el mazo 2');
+				actualizarMesa2();
+			}else if (auxiliar[1] == mesa3) {
+				cartasMesa[3].push(cartita);
+				//alert(cartita+' va en el mazo 3');
+				actualizarMesa3();
+			}
+		}else if (auxiliar.indexOf(cartita, 0) == 3) {
+			if (auxiliar[2] == mesa0) {
+				cartasMesa[0].push(cartita);
+				//alert(cartita+' va en el mazo 0');
+				actualizarMesa0();
+			}else if (auxiliar[2] == mesa1) {
+				cartasMesa[1].push(cartita);
+				//alert(cartita+' va en el mazo 1');
+				actualizarMesa1();
+			}else if (auxiliar[2] == mesa2) {
+				cartasMesa[2].push(cartita);
+				//alert(cartita+' va en el mazo 2');
+				actualizarMesa2();
+			}else if (auxiliar[2] == mesa3) {
+				cartasMesa[3].push(cartita);
+				//alert(cartita+' va en el mazo 3');
+				actualizarMesa3();
+			}
+		}else if (auxiliar.indexOf(cartita, 0) == 4) {
+			if (auxiliar[3] == mesa0) {
+				cartasMesa[0].push(cartita);
+				//alert(cartita+' va en el mazo 0');
+				actualizarMesa0();
+			}else if (auxiliar[3] == mesa1) {
+				cartasMesa[1].push(cartita);
+				//alert(cartita+' va en el mazo 1');
+				actualizarMesa1();
+			}else if (auxiliar[3] == mesa2) {
+				cartasMesa[2].push(cartita);
+				//alert(cartita+' va en el mazo 2');
+				actualizarMesa2();
+			}else if (auxiliar[3] == mesa3) {
+				cartasMesa[3].push(cartita);
+				//alert(cartita+' va en el mazo 3');
+				actualizarMesa3();
+			}
+		}else if (auxiliar.indexOf(cartita, 0) == 0) {
+			alert('Tienes que elegir un mazo de la mesa');
+		}
+
+		function actualizarMesa0(){
+			document.getElementById('cartasMesa0').innerHTML = "";
+			cartasMesa[0].forEach(function(valor, indice, array){
+				document.getElementById('cartasMesa0').innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png' alt='"+indice+"'/></li>";
+			});
+		}
+		function actualizarMesa1(){
+			document.getElementById('cartasMesa1').innerHTML = "";
+			cartasMesa[1].forEach(function(valor, indice, array){
+				document.getElementById('cartasMesa1').innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png' alt='"+indice+"'/></li>";
+			});
+		}
+		function actualizarMesa2(){
+			document.getElementById('cartasMesa2').innerHTML = "";
+			cartasMesa[2].forEach(function(valor, indice, array){
+				document.getElementById('cartasMesa2').innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png' alt='"+indice+"'/></li>";
+			});
+		}
+		function actualizarMesa3(){
+			document.getElementById('cartasMesa3').innerHTML = "";
+			cartasMesa[3].forEach(function(valor, indice, array){
+				document.getElementById('cartasMesa3').innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png' alt='"+indice+"'/></li>";
+			});
+		}
+
+		
+	}
+
+	var cartitasUnaUna = setInterval(function(){
+		if (cartasTurno.length != 0) {
+			pintarCartasUnaAUna();
+			//	Elimino la primera carta del mazo de 
+			cartasTurno.splice(0, 1);
+		}else{
+			clearInterval(cartitasUnaUna);
+			cartasTurno = [];
+			tiempo = 5;
+			contador = setInterval(function(){
+				cuenta();
+			}, 1000);
+		}
+	}, 500);
+
+
+		
+
+	
+		
+
+
+/*
+	cartasTurno.forEach(function(valor, indice, array){
+		auxiliar = [mesa0, mesa1, mesa2, mesa3, valor];
+		function comparar (a, b){ return a - b; }
+		auxiliar.sort( comparar );
+		//console.log(auxiliar);
+
+		//	Controlo a qué mazo pertenece la carta del índice anterior al 'valor'.
+		if (auxiliar.indexOf(valor, 0) == 1) {
+			if (auxiliar[0] == mesa0) {
+				cartasMesa[0].push(valor);	//meter el push en las funciones 'actu..'
+				actualizarMesa0();
+			}else if (auxiliar[0] == mesa1) {
+				cartasMesa[1].push(valor);
+				actualizarMesa1();
+			}else if (auxiliar[0] == mesa2) {
+				cartasMesa[2].push(valor);
+				actualizarMesa2();
+			}else if (auxiliar[0] == mesa3) {
+				cartasMesa[3].push(valor);
+				actualizarMesa3();
+			}
+		}else if (auxiliar.indexOf(valor, 0) == 2) {
+			if (auxiliar[1] == mesa0) {
+				cartasMesa[0].push(valor);
+				actualizarMesa0();
+			}else if (auxiliar[1] == mesa1) {
+				cartasMesa[1].push(valor);
+				actualizarMesa1();
+			}else if (auxiliar[1] == mesa2) {
+				cartasMesa[2].push(valor);
+				actualizarMesa2();
+			}else if (auxiliar[1] == mesa3) {
+				cartasMesa[3].push(valor);
+				actualizarMesa3();
+			}
+		}else if (auxiliar.indexOf(valor, 0) == 3) {
+			if (auxiliar[2] == mesa0) {
+				cartasMesa[0].push(valor);
+				actualizarMesa0();
+			}else if (auxiliar[2] == mesa1) {
+				cartasMesa[1].push(valor);
+				actualizarMesa1();
+			}else if (auxiliar[2] == mesa2) {
+				cartasMesa[2].push(valor);
+				actualizarMesa2();
+			}else if (auxiliar[2] == mesa3) {
+				cartasMesa[3].push(valor);
+				actualizarMesa3();
+			}
+		}else if (auxiliar.indexOf(valor, 0) == 4) {
+			if (auxiliar[3] == mesa0) {
+				cartasMesa[0].push(valor);
+				actualizarMesa0();
+			}else if (auxiliar[3] == mesa1) {
+				cartasMesa[1].push(valor);
+				actualizarMesa1();
+			}else if (auxiliar[3] == mesa2) {
+				cartasMesa[2].push(valor);
+				actualizarMesa2();
+			}else if (auxiliar[3] == mesa3) {
+				cartasMesa[3].push(valor);
+				actualizarMesa3();
+			}
+		}else if (auxiliar.indexOf(valor, 0) == 0) {
+			alert("tienes que sustituir un mazo");
+		}
+		
+		function actualizarMesa0(){
+			document.getElementById('cartasMesa0').innerHTML = "";
+			cartasMesa[0].forEach(function(valor, indice, array){
+				document.getElementById('cartasMesa0').innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png' alt='"+indice+"'/></li>";
+			});
+		}
+		function actualizarMesa1(){
+			document.getElementById('cartasMesa1').innerHTML = "";
+			cartasMesa[1].forEach(function(valor, indice, array){
+				document.getElementById('cartasMesa1').innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png' alt='"+indice+"'/></li>";
+			});
+		}
+		function actualizarMesa2(){
+			document.getElementById('cartasMesa2').innerHTML = "";
+			cartasMesa[2].forEach(function(valor, indice, array){
+				document.getElementById('cartasMesa2').innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png' alt='"+indice+"'/></li>";
+			});
+		}
+		function actualizarMesa3(){
+			document.getElementById('cartasMesa3').innerHTML = "";
+			cartasMesa[3].forEach(function(valor, indice, array){
+				document.getElementById('cartasMesa3').innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png' alt='"+indice+"'/></li>";
+			});
+		}
+
+		
+
+
+		
+		//for (i = 0; i <= 3; i++) {
+		//	document.getElementById('cartasMesa'+i).innerHTML = "";
+		//}
+		//pintarCartasMesa();
+		
+
+	});
+*/
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

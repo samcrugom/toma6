@@ -55,11 +55,9 @@ function repartir(){
 		
 
 	//	PINTAR LAS CARTAS DE LA MESA
-	for (i = 0; i <= 3; i++) {
-		cartasMesa[i].forEach(function(valor, indice, array){
-			document.getElementById('cartasMesa'+[i]).innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png' alt='"+indice+"'/></li>";
-		});
-	}
+	pintarCartasMesa();
+
+		
 	//console.log(cartasMesa);
 	/*
 	for (i = 0; i <= 3; i++) {
@@ -69,39 +67,14 @@ function repartir(){
 	}
 	*/
 
-
-
-
-	//	PRUEBA		----------------------------
-/*
-	document.getElementById('cartasMesa1').innerHTML += "<li><img src='assets/rsc/img/cartas/1.png' alt='1'/></li>";
-	document.getElementById('cartasMesa1').innerHTML += "<li><img src='assets/rsc/img/cartas/2.png' alt='2'/></li>";
-	document.getElementById('cartasMesa1').innerHTML += "<li><img src='assets/rsc/img/cartas/3.png' alt='3'/></li>";
-	document.getElementById('cartasMesa1').innerHTML += "<li><img src='assets/rsc/img/cartas/4.png' alt='4'/></li>";
-	document.getElementById('cartasMesa1').innerHTML += "<li><img src='assets/rsc/img/cartas/5.png' alt='5'/></li>";
-
-	document.getElementById('cartasMesa2').innerHTML += "<li><img src='assets/rsc/img/cartas/11.png' alt='11'/></li>";
-	document.getElementById('cartasMesa2').innerHTML += "<li><img src='assets/rsc/img/cartas/12.png' alt='12'/></li>";
-	document.getElementById('cartasMesa2').innerHTML += "<li><img src='assets/rsc/img/cartas/13.png' alt='13'/></li>";
-	document.getElementById('cartasMesa2').innerHTML += "<li><img src='assets/rsc/img/cartas/14.png' alt='14'/></li>";
-	document.getElementById('cartasMesa2').innerHTML += "<li><img src='assets/rsc/img/cartas/15.png' alt='15'/></li>";
-
-	document.getElementById('cartasMesa3').innerHTML += "<li><img src='assets/rsc/img/cartas/21.png' alt='21'/></li>";
-	document.getElementById('cartasMesa3').innerHTML += "<li><img src='assets/rsc/img/cartas/22.png' alt='22'/></li>";
-	document.getElementById('cartasMesa3').innerHTML += "<li><img src='assets/rsc/img/cartas/23.png' alt='23'/></li>";
-	document.getElementById('cartasMesa3').innerHTML += "<li><img src='assets/rsc/img/cartas/24.png' alt='24'/></li>";
-	document.getElementById('cartasMesa3').innerHTML += "<li><img src='assets/rsc/img/cartas/25.png' alt='25'/></li>";
-
-*/
-
-
-	//	----------------------------
 }
 
 //	PINTAR CARTAS DE MI MANO
 
 function pintarJugador1(){
-	//for (i = 0; i <= 9; i++) {
+	//	Ordeno las cartas de mi mano de menor a mayor
+	function comparar (a, b){ return a - b; }
+	jugadores[1].sort( comparar );
 
 	var miMano1 = document.createElement('div');
 	miMano1.setAttribute('id', 'miMano');
@@ -137,6 +110,14 @@ function pintarJugador1(){
 	});
 	console.log(jugadores[1]);
 }
+
+function pintarCartasMesa(){
+		for (i = 0; i <= 3; i++) {
+			cartasMesa[i].forEach(function(valor, indice, array){
+				document.getElementById('cartasMesa'+[i]).innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png' alt='"+indice+"'/></li>";
+			});
+		}
+	}
 
 /*
 var cartasUsadas = [1, 2, 3, 4, 5];
