@@ -11,6 +11,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
 
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
 
 	<link rel="icon" type="icon/png" href="favicon.png">
 	<title></title>
@@ -21,13 +22,24 @@
 			
 		<section class="main"></section>
 		<div class="tablaGirada"></div>
-		<div id="vsMachine">
-			<span>
-				<img class="jugador" src="assets/rsc/img/logo.png">
-				<img class="maquina" src="assets/rsc/img/laptop.png">
-			</span>
-				
-		<div/>
+		<section class="tablitas">
+			<div id="vsMachine">
+				<span>
+					<img class="jugador" src="assets/rsc/img/logo.png">
+					<img class="maquina" src="assets/rsc/img/laptop.png">
+				</span>
+			</div>
+			<div id="vsUsers">
+				<span>
+					<img class="jugador" src="assets/rsc/img/logo.png">
+					<img class="maquina" src="assets/rsc/img/multiplayer.png">
+				<!--
+					<img class="proximamente" src="http://aorac.es/imagenes/PROXIMAMENTE.png">
+				-->
+				</span>
+			</div>
+		</section>
+			
     </div>
 
 
@@ -40,8 +52,11 @@
 	<script type="text/javascript" src="assets/js/script.js"></script>
 	<script type="text/javascript">
 		
-		$("#vsMachine").click(function(){
+		$("#vsMachine span").click(function(){
 			window.location = "partida.html";
+		});
+		$("#vsUsers").click(function(){
+			$(this).attr("class", "animated hinge slow");
 		});
 
 	</script>

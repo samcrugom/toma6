@@ -34,7 +34,7 @@ body.loading {
 .main {
 	width: 100%;
 	height: 100vh;
-	background: url("../rsc/img/farmbackground.jpg") center center;
+	background: url("../rsc/img/farmbackground.jpg") no-repeat center center;
 	background-size: cover;
 	filter: blur(2px);
 }
@@ -46,42 +46,72 @@ body.loading {
 	transform: translateX(-50%);
 	width: 100vw;
 	height: 230px;
-	background: url("../rsc/img/tabla-girada.png") bottom center;
+	background: url("../rsc/img/tabla-girada.png") no-repeat bottom center;
+}
+
+.tablitas {
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 300px;
+	height: 600px;
+
 }
 
 #vsMachine {
 	position: absolute;
 	width: 300px;
 	height: 300px;
-	top: 10%;
+	top: 0%;
 	left: 50%;
 	transform: translateX(-50%);
-	background: url("../rsc/img/tabla.png") center center;
+	background: url("../rsc/img/tabla.png") no-repeat center center;
 	background-size: cover;
 	filter: drop-shadow(0px 10px 3px rgba(0, 0, 0, .5));
 }
 
-#vsMachine span {
+#vsMachine span, #vsUsers span {
 	position: absolute;
-	top: 50%;
+	top: 40%;
 	left: 50%;
 	transform: translateX(-50%);
 	display: block;
-	width: 70%;
-	height: 50px;
+	width: 80%;
+	height: 140px;
 	filter: drop-shadow(-1px 1px 3px rgba(0, 0, 0, .5));
 }
 
-#vsMachine span .jugador {
+#vsMachine span .jugador, #vsUsers span .jugador {
 	float: left;
+	margin-top: 30px;
 	width: 80px;
 	filter: drop-shadow(-1px 1px 3px rgba(0, 0, 0, .5));
 }
 
-#vsMachine span .maquina {
+#vsMachine span .maquina, #vsUsers span .maquina {
 	float: right;
+	margin-top: 30px;
 	width: 80px;
 	filter: drop-shadow(-1px 1px 3px rgba(0, 0, 0, .1));
+}
+
+#vsUsers {
+	position: absolute;
+	width: 250px;
+	height: 230px;
+	top: 42%;
+	margin-left: 28px;
+	background: url("../rsc/img/tabla2.png") no-repeat center center;
+	background-size: cover;
+	filter: drop-shadow(0px 10px 3px rgba(0, 0, 0, .5));
+}
+
+.proximamente {
+	position: absolute;
+	width: 50%;
+	margin: 30px 0 0 -50px;
+	z-index: 999999;
 }
 
 /*+++++++++++		PARTIDA		+++++++++++*/
