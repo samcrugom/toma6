@@ -64,8 +64,6 @@ body.loading {
 	width: 300px;
 	height: 300px;
 	top: 0%;
-	left: 50%;
-	transform: translateX(-50%);
 	background: url("../rsc/img/tabla.png") no-repeat center center;
 	background-size: cover;
 	filter: drop-shadow(0px 10px 3px rgba(0, 0, 0, .5));
@@ -89,6 +87,14 @@ body.loading {
 	filter: drop-shadow(-1px 1px 3px rgba(0, 0, 0, .5));
 }
 
+#vsMachine span .vs {
+	position: absolute;
+	top: 35px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 60px;
+}
+
 #vsMachine span .maquina, #vsUsers span .maquina {
 	float: right;
 	margin-top: 30px;
@@ -104,6 +110,7 @@ body.loading {
 	margin-left: 28px;
 	background: url("../rsc/img/tabla2.png") no-repeat center center;
 	background-size: cover;
+	opacity: 0;
 	filter: drop-shadow(0px 10px 3px rgba(0, 0, 0, .5));
 }
 

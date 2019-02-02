@@ -8,6 +8,8 @@ var jugadores = [];
 
 function repartir(){
 	
+	document.getElementById('repartir').play();
+
 	
 	//	CREAR UN ARRAY MULTIDIMENSIONAL (JUGADORES) EN EL QUE GUARDA LAS CARTAS DE CADA UNO DE LOS JUGADORES
 	for (i = 1; i <= numJugadores; i++) {

@@ -19,6 +19,16 @@
 </head>
 <body>
 
+	<audio id="repartir">
+		<source src="assets/rsc/audio/shuffle.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="colocarCarta">
+		<source src="assets/rsc/audio/shuffle2.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="colocarCarta2">
+		<source src="assets/rsc/audio/shuffle3.mp3" type="audio/mpeg">
+	</audio>
+
 	<div class="container" id="container">
 		<span id="tiempo1">5</span>
 		<section id="mesa">
@@ -55,6 +65,7 @@
 				<span id="add">Add items</span>
 			</nav>
 		-->
+		
 <!--
 			<div class="baraja-demo">
 				<ul id="baraja-el" class="baraja-container"></ul>
@@ -304,6 +315,19 @@
 				baraja.close();
 			
 			} );
+
+			// example of how to add more items
+				$( '#add' ).on( 'click', function( event ) {
+
+					if( $( this ).hasClass( 'disabled' ) ) {
+						return false;
+					}
+
+					$( this ).addClass( 'disabled' );
+
+					baraja.add( $('<li><img src="" alt=""/></li><li><img src="" alt=""/></li><li><img src="" alt=""/></li><li><img src="" alt=""/></li>') );
+				
+				} );
 
 		});
 	</script>

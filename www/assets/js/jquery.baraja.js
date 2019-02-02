@@ -83,7 +83,7 @@
 				// will have 0deg and the last one 90deg;
 				// if center:true, then the first one will have 45deg
 				// and the last one -45deg; in both cases the difference is 90deg
-				range : 90,
+				range : 95,
 				// this defines the position of the first item 
 				// (to the right, to the left)
 				// and its angle (clockwise / counterclockwise)
@@ -91,7 +91,7 @@
 				// transform origin:
 				// you can also pass a minX and maxX, meaning the left value 
 				// will vary between minX and maxX 
-				origin : { x : 25, y : 100 },
+				origin : { x : 50, y : 100 },
 				// additional translation of each item
 				translation : 0,
 				// if the cards should be centered after the transform 

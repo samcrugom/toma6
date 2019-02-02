@@ -18,14 +18,19 @@
 </head>
 <body>
 
+	<audio id="madera">
+		<source src="assets/rsc/audio/madera.mp3" type="audio/mpeg">
+	</audio>
+
 	<div class="container">
 			
 		<section class="main"></section>
 		<div class="tablaGirada"></div>
 		<section class="tablitas">
-			<div id="vsMachine">
+			<div id="vsMachine" class="animated bounceInDown">
 				<span>
 					<img class="jugador" src="assets/rsc/img/logo.png">
+					<img class="vs" src="assets/rsc/img/vs.png">
 					<img class="maquina" src="assets/rsc/img/laptop.png">
 				</span>
 			</div>
@@ -51,12 +56,24 @@
 	<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="assets/js/script.js"></script>
 	<script type="text/javascript">
+
+		setTimeout(function(){
+			$("#vsUsers").css('opacity', '1');
+			$("#vsUsers").attr('class', 'animated bounceInDown');
+
+        }, 400);
 		
 		$("#vsMachine span").click(function(){
-			window.location = "partida.html";
+			$("#vsMachine").attr('class', 'animated pulse');
+			setTimeout(function(){
+				window.location = "partida.html";
+	        }, 1000);
 		});
 		$("#vsUsers").click(function(){
 			$(this).attr("class", "animated hinge slow");
+			setTimeout(function(){
+	            document.getElementById('madera').play();
+	        }, 1500);
 		});
 
 	</script>
