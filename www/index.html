@@ -19,17 +19,48 @@
 	
 	<script type="text/javascript" src="assets/js/modernizr.custom.79639.js"></script>
 </head>
-<body class="loading">
+<body>
 
 	<audio id="musica">
 		<source src="assets/rsc/audio/loading.mp3" type="audio/mpeg">
 	</audio>
-	
-	<div class="preloader" id="preloader">
-		<div>
-			<img src="assets/rsc/img/logo.png" id="imgPre" class="animated fadeInUp fast">
-		</div>
-        	
+	<audio id="madera">
+		<source src="assets/rsc/audio/madera.mp3" type="audio/mpeg">
+	</audio>
+
+	<div class="loading">
+		<div class="preloader" id="preloader">
+			<div>
+				<img src="assets/rsc/img/logo.png" id="imgPre" class="">
+			</div>
+	    </div>
+	</div>
+		
+
+    <div class="container">
+			
+		<section class="main"></section>
+		<div class="tablaGirada"></div>
+		<section class="tablitas">
+			<div id="vsMachine" class="">
+				<span>
+					<img class="jugador" src="assets/rsc/img/logo.png">
+					<img class="vs" src="assets/rsc/img/vs.png">
+					<img class="maquina" src="assets/rsc/img/laptop.png">
+				</span>
+			</div>
+			<div id="vsUsers">
+				<span>
+					<img class="jugador" src="assets/rsc/img/logo.png">
+					<img class="vs" src="assets/rsc/img/vs.png">
+					<img class="maquina" src="assets/rsc/img/multiplayer.png">
+				<!--
+					<img class="proximamente" src="http://aorac.es/imagenes/PROXIMAMENTE.png">
+				-->
+				</span>
+			</div>
+		</section>
+			
     </div>
 
 
@@ -42,22 +73,57 @@
 	<script type="text/javascript" src="assets/js/script.js"></script>
 	<script type="text/javascript">
 
+		//	LOADER
 		setTimeout(function(){
             document.getElementById('imgPre').style.opacity = "0";
         }, 1);
+		setTimeout(function(){
+            document.getElementById('imgPre').style.opacity = "1";
+            $("#imgPre").attr("class", "animated fadeInUp fast");
+        }, 2500);
         setTimeout(function(){
             document.getElementById('musica').play();
-        }, 300);
+        }, 3000);
         setTimeout(function(){
             document.getElementById('musica').pause();
-        }, 3000);
+        }, 5200);
 		setTimeout(function(){
             $("#imgPre").attr("class", "animated fadeOut slow");
-        }, 3500);
+        }, 6000);
         setTimeout(function(){
-            window.location = "main.html";
-        }, 5000);
+            //window.location = "main.html";
+            $(".preloader").css("display", "none");
+            $(".loading").attr("class", "animated fadeOut slow");
+        }, 7500);
 
+        //	MENU
+        setTimeout(function(){
+			$("#vsMachine").css('opacity', '1');
+			$("#vsMachine").attr('class', 'animated bounceInDown');
+
+        }, 7900);
+        setTimeout(function(){
+			$("#vsUsers").css('opacity', '1');
+			$("#vsUsers").attr('class', 'animated bounceInDown');
+
+        }, 8200);
+		
+		$("#vsMachine span").click(function(){
+			//$("#vsMachine").attr('class', 'animated pulse');
+			$("#vsMachine").attr('class', 'animated bounceOut');
+			setTimeout(function(){
+				$(".container").attr('class', 'animated bounceOut');
+	        }, 500);
+	        setTimeout(function(){
+				window.location = "partida.html";
+	        }, 3000);
+		});
+		$("#vsUsers").click(function(){
+			$(this).attr("class", "animated hinge slow");
+			setTimeout(function(){
+	            document.getElementById('madera').play();
+	        }, 1400);
+		});
 	</script>
 </body>
 </html>

@@ -1,11 +1,16 @@
 body {
+	width: 100%;
+	height: 100%;
 	padding: 0;
 	margin: 0;
 	font-family: Arial, Tahoma, sans-serif;
+	overflow: hidden;
 }
 
-body.loading {
+.loading {
 	overflow: hidden;
+	height: 100vh;
+	background: white;
 }
 
 .preloader {
@@ -29,6 +34,10 @@ body.loading {
 .container {
 	width: 100%;
 	height: 100%;
+	position: absolute;
+	z-index: -20;
+	top: 0;
+	overflow: hidden;
 }
 
 .main {
@@ -45,13 +54,13 @@ body.loading {
 	left: 50%;
 	transform: translateX(-50%);
 	width: 100vw;
-	height: 230px;
+	height: 180px;
 	background: url("../rsc/img/tabla-girada.png") no-repeat bottom center;
 }
 
 .tablitas {
 	position: absolute;
-	top: 10%;
+	top: 5%;
 	left: 50%;
 	transform: translateX(-50%);
 	width: 300px;
@@ -67,6 +76,7 @@ body.loading {
 	background: url("../rsc/img/tabla.png") no-repeat center center;
 	background-size: cover;
 	filter: drop-shadow(0px 10px 3px rgba(0, 0, 0, .5));
+	opacity: 0;
 }
 
 #vsMachine span, #vsUsers span {
@@ -93,6 +103,14 @@ body.loading {
 	left: 50%;
 	transform: translateX(-50%);
 	width: 60px;
+}
+
+#vsUsers span .vs {
+	position: absolute;
+	top: 35px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 40px;
 }
 
 #vsMachine span .maquina, #vsUsers span .maquina {
@@ -152,13 +170,12 @@ ul#cartasMesa0, ul#cartasMesa1, ul#cartasMesa2, ul#cartasMesa3 {
 
 ul#cartasMesa0 li, ul#cartasMesa1 li, ul#cartasMesa2 li, ul#cartasMesa3 li {
 	float: left;
-	margin-top: -130%;
-	width: 68px;
-	height: 117px;
+	margin-top: -140%;
+	width: 97%;
 	color: #666;
 	font-size: 14px;
 	border: 1px solid #ddd;
-	box-shadow: 0 -2px 5px rgba(0, 0, 0, .5);
+	box-shadow: 0 -2px 5px rgba(0, 0, 0, .3);
 	border-radius: 3px;
 }
 

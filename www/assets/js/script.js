@@ -433,19 +433,19 @@ function colocarCartasEnMesa(){
 				cartasMesa[mazoASustituir].forEach(function(valor, indice, array){
 					if (valor == 5 || valor == 15 || valor == 25 || valor == 35 || valor == 45 || valor == 65 || valor == 75 || valor == 85 || valor == 95) {
 						puntosMaquina += 2;
-						alert(valor);
+						//alert(valor);
 					}else if (valor == 10 || valor == 20 || valor == 30 || valor == 40 || valor == 50 || valor == 60 || valor == 70 || valor == 80 || valor == 90 || valor == 100) {
 						puntosMaquina += 3;
-						alert(valor);
+						//alert(valor);
 					}else if (valor == 11 || valor == 22 || valor == 33 || valor == 44 || valor == 66 || valor == 77 || valor == 88 || valor == 99) {
 						puntosMaquina += 5;
-						alert(valor);
+						//alert(valor);
 					}else if (valor == 55) {
 						puntosMaquina += 7;
-						alert(valor);
+						//alert(valor);
 					}else{
 						puntosMaquina += 1;
-						alert(valor);
+						//alert(valor);
 					}
 					//alert('Carta '+valor+': '+puntos+' pnts');
 				});
@@ -519,19 +519,19 @@ function colocarCartasEnMesa(){
 			cartasMesa[mesita].forEach(function(valor, indice, array){
 				if (valor == 5 || valor == 15 || valor == 25 || valor == 35 || valor == 45 || valor == 65 || valor == 75 || valor == 85 || valor == 95) {
 					puntosMaquinita += 2;
-					alert(valor);
+					//alert(valor);
 				}else if (valor == 10 || valor == 20 || valor == 30 || valor == 40 || valor == 50 || valor == 60 || valor == 70 || valor == 80 || valor == 90 || valor == 100) {
 					puntosMaquinita += 3;
-					alert(valor);
+					//alert(valor);
 				}else if (valor == 11 || valor == 22 || valor == 33 || valor == 44 || valor == 66 || valor == 77 || valor == 88 || valor == 99) {
 					puntosMaquinita += 5;
-					alert(valor);
+					//alert(valor);
 				}else if (valor == 55) {
 					puntosMaquinita += 7;
-					alert(valor);
+					//alert(valor);
 				}else{
 					puntosMaquinita += 1;
-					alert(valor);
+					//alert(valor);
 				}
 				//alert('Carta '+valor+': '+puntos+' pnts');
 			});

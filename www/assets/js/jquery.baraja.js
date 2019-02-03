@@ -83,7 +83,7 @@
 				// will have 0deg and the last one 90deg;
 				// if center:true, then the first one will have 45deg
 				// and the last one -45deg; in both cases the difference is 90deg
-				range : 95,
+				range : 120,
 				// this defines the position of the first item 
 				// (to the right, to the left)
 				// and its angle (clockwise / counterclockwise)
