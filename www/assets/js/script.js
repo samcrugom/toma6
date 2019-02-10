@@ -1,5 +1,6 @@
 //	TIEMPO
 var tiempo = 5;
+var turno = 0;
 var indiceCartaElegida = 0;
 var cartaElegida = jugadores[1][indiceCartaElegida]; // El segundo valor es el índice del array, la posición que tengo que eliminar del array y pintarla posteriormente en la mesa. Por defecto, que se elija la primera del mazo en el caso de no tocarlo.
 var cartasTurno = [];
@@ -40,6 +41,7 @@ var mesita = "";
 function cuenta(){
 	if (tiempo <= 0) {
 
+		turno++;
 		clearInterval(contador);
 		alert("Has elegido la carta = "+cartaElegida);
 		cartaElegida2 = cartaElegida;
@@ -65,6 +67,12 @@ function cuenta(){
 		$("#tiempo1").css("color", "white");
 		$("#tiempo1").css("text-shadow", "none");
 	}
+	if (tiempo == 4) {
+		if (turno == 11) {
+			acabaPartida();
+		}
+	}
+		
 
 	//	ELECCIÓN DE CARTA DE TU MAZO
 
@@ -176,9 +184,6 @@ function pintarCartasMano(){
 		miMano2.appendChild(carta);
 		carta.appendChild(fotoCarta);
 	});
-	if (jugadores[1].length == 0) {
-		acabaPartida();
-	}
 	cerrar();
 	function cerrar(event){
 		var $el = $( '#baraja-el' ),
@@ -395,7 +400,8 @@ function colocarCartasEnMesa(){
 				puntosTotales += puntos;
 
 				alert('Te has comido '+puntos+' puntos');
-				alert('tienes '+puntosTotales+' puntos negativos en total')
+				alert('tienes '+puntosTotales+' puntos negativos en total');
+				document.getElementById('puntos').innerHTML = "Puntos: "+puntosTotales;
 
 				// sustituir el 'monton' por 'cartita'
 
@@ -547,6 +553,7 @@ function colocarCartasEnMesa(){
 			if (cartita == cartaElegida2) {
 				jugadorComeCartas = 1;
 				puntosTotales += puntosMaquinita;
+				document.getElementById('puntos').innerHTML = "Puntos: "+puntosTotales;
 			}else if (cartita == cartaJugador2) {
 				jugadorComeCartas = 2;
 				puntosTotalesJugador2 += puntosMaquinita;
