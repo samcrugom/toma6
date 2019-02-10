@@ -114,12 +114,12 @@ function pintarJugador1(){
 }
 
 function pintarCartasMesa(){
-		for (i = 0; i <= 3; i++) {
-			cartasMesa[i].forEach(function(valor, indice, array){
-				document.getElementById('cartasMesa'+[i]).innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png' alt='"+indice+"'/></li>";
-			});
-		}
+	for (i = 0; i <= 3; i++) {
+		cartasMesa[i].forEach(function(valor, indice, array){
+			document.getElementById('cartasMesa'+[i]).innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png' alt='"+indice+"'/></li>";
+		});
 	}
+}
 
 /*
 var cartasUsadas = [1, 2, 3, 4, 5];

@@ -62,7 +62,8 @@ function cuenta(){
 		cartaElegida = jugadores[1][indiceCartaElegida];
 
 		tiempo = 0;
-		$("#tiempo1").css("color", "black");
+		$("#tiempo1").css("color", "white");
+		$("#tiempo1").css("text-shadow", "none");
 	}
 
 	//	ELECCIÓN DE CARTA DE TU MAZO
@@ -130,6 +131,10 @@ function cuenta(){
 	tiempo--;
 	if (tiempo == 3) {
 		$("#tiempo1").css("color", "red");
+		$("#tiempo1").css("text-shadow", "2px 0 0 white, -2px 0 0 white, 0 2px 0 white, 0 -2px 0 white, 1px 1px white, -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white");
+	}
+	if (tiempo <= 0) {
+		tiempo = 0;
 	}
 	document.getElementById('tiempo1').innerHTML = tiempo;
 }
@@ -677,6 +682,9 @@ function colocarCartasEnMesa(){
 }
 
 function acabaPartida(){
+	alert("Se ACABÓ!!!");
+	window.location = "main.html";
+	/*
 	console.log(puntosTotales);
 	console.log(puntosTotalesJugador2);
 	console.log(puntosTotalesJugador3);
@@ -687,6 +695,7 @@ function acabaPartida(){
 	console.log(puntosTotalesJugador8);
 	console.log(puntosTotalesJugador9);
 	console.log(puntosTotalesJugador10);
+	*/
 }
 
 

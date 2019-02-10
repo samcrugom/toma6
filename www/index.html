@@ -9,8 +9,8 @@
 	<meta name="contact" content="Especificar el correo del administrador => admin@dominio.com">
 	<meta name="robots" content="Index, Follow, NoIndex, NoFollow => NoIndex, NoFollow (xq estamos de prueba)">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<link rel="icon" type="icon/png" href="favicon.png">
 	<title></title>
@@ -37,31 +37,7 @@
 	</div>
 		
 
-    <div class="container">
-			
-		<section class="main"></section>
-		<div class="tablaGirada"></div>
-		<section class="tablitas">
-			<div id="vsMachine" class="">
-				<span>
-					<img class="jugador" src="assets/rsc/img/logo.png">
-					<img class="vs" src="assets/rsc/img/vs.png">
-					<img class="maquina" src="assets/rsc/img/laptop.png">
-				</span>
-			</div>
-			<div id="vsUsers">
-				<span>
-					<img class="jugador" src="assets/rsc/img/logo.png">
-					<img class="vs" src="assets/rsc/img/vs.png">
-					<img class="maquina" src="assets/rsc/img/multiplayer.png">
-				<!--
-					<img class="proximamente" src="http://aorac.es/imagenes/PROXIMAMENTE.png">
-				-->
-				</span>
-			</div>
-		</section>
-			
-    </div>
+    
 
 
 
@@ -69,11 +45,11 @@
 
 
 	<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="assets/js/jquery.baraja.js"></script>
 	<script type="text/javascript" src="assets/js/script.js"></script>
 	<script type="text/javascript">
 
 		//	LOADER
+		
 		setTimeout(function(){
             document.getElementById('imgPre').style.opacity = "0";
         }, 1);
@@ -95,35 +71,11 @@
             $(".preloader").css("display", "none");
             $(".loading").attr("class", "animated fadeOut slow");
         }, 7500);
-
-        //	MENU
         setTimeout(function(){
-			$("#vsMachine").css('opacity', '1');
-			$("#vsMachine").attr('class', 'animated bounceInDown');
+            window.location = "main.html";
+        }, 7800);
 
-        }, 7900);
-        setTimeout(function(){
-			$("#vsUsers").css('opacity', '1');
-			$("#vsUsers").attr('class', 'animated bounceInDown');
 
-        }, 8200);
-		
-		$("#vsMachine span").click(function(){
-			//$("#vsMachine").attr('class', 'animated pulse');
-			$("#vsMachine").attr('class', 'animated bounceOut');
-			setTimeout(function(){
-				$(".container").attr('class', 'animated bounceOut');
-	        }, 500);
-	        setTimeout(function(){
-				window.location = "partida.html";
-	        }, 3000);
-		});
-		$("#vsUsers").click(function(){
-			$(this).attr("class", "animated hinge slow");
-			setTimeout(function(){
-	            document.getElementById('madera').play();
-	        }, 1400);
-		});
-	</script>
+       	</script>
 </body>
 </html>
