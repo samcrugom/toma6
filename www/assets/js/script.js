@@ -33,12 +33,19 @@ var numCartasMesa3 = 1;
 var jugadorComeCartas = "";
 var puntosMaquina = "";
 var mesita = "";
+var nombre = "";
 
 
 
 
 
 function cuenta(){
+	
+	if (jugadores[1].length == 0) {
+		if (turno == 10) {
+			acabaPartida();
+		}
+	}
 	if (tiempo <= 0) {
 
 		turno++;
@@ -67,11 +74,7 @@ function cuenta(){
 		$("#tiempo1").css("color", "white");
 		$("#tiempo1").css("text-shadow", "none");
 	}
-	if (tiempo == 4) {
-		if (turno == 11) {
-			acabaPartida();
-		}
-	}
+	
 		
 
 	//	ELECCIÓN DE CARTA DE TU MAZO
@@ -680,30 +683,15 @@ function colocarCartasEnMesa(){
 		}else{
 			clearInterval(cartitasUnaUna);
 			cartasTurno = [];
-			tiempo = 5;
+			tiempo = 1;
 			contador = setInterval(function(){
 				cuenta();
 			}, 1000);
 		}
-	}, 1000);
+	}, 200);
 }
 
-function acabaPartida(){
-	alert("Se ACABÓ!!!");
-	window.location = "main.html";
-	/*
-	console.log(puntosTotales);
-	console.log(puntosTotalesJugador2);
-	console.log(puntosTotalesJugador3);
-	console.log(puntosTotalesJugador4);
-	console.log(puntosTotalesJugador5);
-	console.log(puntosTotalesJugador6);
-	console.log(puntosTotalesJugador7);
-	console.log(puntosTotalesJugador8);
-	console.log(puntosTotalesJugador9);
-	console.log(puntosTotalesJugador10);
-	*/
-}
+
 
 
 

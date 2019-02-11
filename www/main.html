@@ -51,7 +51,15 @@
 			<article>COMO JUGAR</article>
 		</section>
 		<section id="ranking" class="ranking">
-			<img src="assets/rsc/img/ranking.png">		
+			<img src="assets/rsc/img/ranking.png">
+			<article>RANKING</article>		
+		</section>
+		<section id="rankingTabla" class="">
+			<article id="rankingTabla2">
+				<span class="titleRanking">RANKING</span>
+				<img id="salirRanking" src="assets/rsc/img/salir.png">
+				<div id="rankingTabla3"></div>
+			</article>
 		</section>
     </div>
 
@@ -100,6 +108,38 @@
 			    imageAlt: "A tall image"
 			})
 		});
+
+		$("#ranking").click(function(){
+			pintarRanking();
+			$("#rankingTabla").css('z-index', '9999999999999');
+			$("#rankingTabla").css('display', 'block');
+			$("#rankingTabla").attr('class', 'animated bounceInDown');
+		});
+
+		$("#salirRanking").click(function(){
+			$("#rankingTabla").attr('class', 'animated bounceOutUp');
+			$("#rankingTabla").css('z-index', '0');
+		});
+
+		function pintarRanking() {
+			//	SACA LOS DATOS DE LAS DEMÁS PUNTUACIONES QUE HAYAN JUGADO.
+			$("#rankingTabla3").html('');
+			$.ajax({                                                    
+		        url:"http://www.samcrugom.com/toma6/ranking.app.php",
+		        type: "GET",                                            
+		        async: true,                                            
+		        success: function(){                                   
+		            $.getJSON("http://www.samcrugom.com/toma6/ranking.app.php", function(jugadores){
+		                $.each(jugadores, function(i, jugador){
+		                    $("#rankingTabla3").append("<div class='cajon'><span class='nombreJugador'>"+jugador.nombre_jugador+" .............</span><span class='puntosJugador'>"+jugador.puntos_jugador+"</span></div>");
+		                });
+		            });
+		        },
+		        error: function(){
+		            console.log("Error al cargar el archivo");
+		        }
+		    });
+		}
 	</script>
 </body>
 </html>

@@ -3,6 +3,11 @@
 	src: url('../rsc/fonts/Golden_Age.ttf') format('truetype');
 }
 
+@font-face{
+	font-family: 'tiza';
+	src: url('../rsc/fonts/tiza2.ttf') format('truetype');
+}
+
 body {
 	width: 100%;
 	height: 100%;
@@ -44,6 +49,7 @@ body {
 
 
 
+
 /*+++++++++++		MAIN		+++++++++++*/
 .container {
 	width: 100%;
@@ -74,7 +80,7 @@ body {
 
 .tablitas {
 	position: absolute;
-	top: 5%;
+	top: 4%;
 	left: 50%;
 	transform: translateX(-50%);
 	width: 300px;
@@ -173,6 +179,7 @@ body {
 	left: 20px;
 	font-family: 'golden';
 	color: black;
+	font-size: 20px;
 }
 	#reglas:hover {
 		cursor:pointer;
@@ -181,9 +188,19 @@ body {
 .ranking {
 	position: absolute;
 	right: 20px;
-	bottom: -60px;
+	bottom: -65px;
 	z-index: 999999999;
 	width: 150px;
+}
+
+.ranking article {
+	position: absolute;
+	z-index: 999999999;
+	top: 25%;
+	left: 40px;
+	font-family: 'golden';
+	color: black;
+	font-size: 20px;
 }
 
 .ranking img {
@@ -220,6 +237,84 @@ body {
 	background: orange !important;
 }
 
+section#rankingTabla {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .5);
+	z-index: 0;
+}
+
+article#rankingTabla2 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%;
+	height: 70%;
+	background: url('../rsc/img/texturaMadera.jpg') no-repeat center center;
+	background-size: cover;
+	border-radius: 10px;
+	box-shadow: 0px 5px 3px -2px rgba(0, 0, 0, .6) !important;
+}
+
+#rankingTabla3 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 5%;
+	width: 70%;
+	height: 80%;
+	background: black;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+#rankingTabla3 span {
+	display: inline-block;
+	font-family: 'tiza';
+	color: white;
+	letter-spacing: 3px;
+	margin-top: 10px;
+}
+
+	#rankingTabla3 .cajon:first-child {
+		margin-top: 30px;
+	}
+
+.titleRanking {
+	position: absolute;
+	top: 45px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: inline-block;
+	width: 72%;
+	background: black;
+	font-size: 22px;
+	text-align: center;
+	font-family: 'tiza';
+	color: white;
+	letter-spacing: 4px;
+	z-index: 999999999999999;
+	border-bottom: 2px solid white;
+}
+
+.puntosJugador {
+	float: right;
+	background: black;
+}
+
+#salirRanking {
+	position: absolute;
+	top: -20px;
+	right: 20px;
+	width: 50px;
+	height: auto;
+}
 
 
 
@@ -326,6 +421,8 @@ ul#cartasMesa li img{
 	font: normal normal 15px 'golden';
 	color: white;
 }
+
+
 
 
 
