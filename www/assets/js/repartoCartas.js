@@ -1,7 +1,7 @@
 //	REPARTIR
 var cartasUsadas = [];
 var cartasMesa = [];
-var numJugadores = 3;
+var numJugadores = 10;
 var jugadores = [];
 
 //repartir();	//	Llamamos a la funcion desde el archivo partida.html para que no se ejecute cada vez que enlacemos éste script en un html.

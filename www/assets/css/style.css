@@ -344,7 +344,7 @@ ul#cartasMesa{
 	transform: translateX(-50%);
 	padding: 0;
 	width: 80%;
-	height: 50vh;
+	height: 30vh;
 	list-style-type: none;
 }
 
@@ -422,7 +422,35 @@ ul#cartasMesa li img{
 	color: white;
 }
 
+#mesa2 {
+	width: 100%;
+	height: 50px;
+	background: rgba(255, 255, 255, .2);
+}
 
+ul#cartasDelTurno {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	list-style-type: none;
+	transform: translate(-50%, -50%);
+	margin: 0;
+	padding: 0;
+	width: 80%;
+}
+
+ul#cartasDelTurno li {
+	float: left;
+	margin: 0 1%;
+	width: 8%;
+	transform: translateY(-50%);
+	box-shadow: 0 -2px 5px rgba(0, 0, 0, .5);
+	border-radius: 3px;
+}
+
+ul#cartasDelTurno li img{
+	width: 100%;
+}
 
 
 

@@ -240,6 +240,28 @@ function turnoCartas(){
 	function comparar (a, b){ return a - b; }
 	cartasTurno.sort( comparar );
 	console.log(cartasTurno);
+
+	//	PINTO LAS CARTAS  DEL TURNO:
+	document.getElementById('cartasDelTurno').innerHTML = "";
+	cartasTurno.forEach(function(valor, indice, array){
+		document.getElementById('cartasDelTurno').innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png'/></li>";
+	});
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	//console.log('cartasCadaJugador: '+cartasCadaJugador);
 
 	//	SE COLOCAN LAS CARTAS ENCIMA DE LA MESA
@@ -403,28 +425,32 @@ function colocarCartasEnMesa(){
 				puntosTotales += puntos;
 
 				alert('Te has comido '+puntos+' puntos');
-				alert('tienes '+puntosTotales+' puntos negativos en total');
+				alert('Tienes '+puntosTotales+' puntos negativos en total');
 				document.getElementById('puntos').innerHTML = "Puntos: "+puntosTotales;
 
 				// sustituir el 'monton' por 'cartita'
 
 				cartasMesa[mazoSustituir] = [cartita];
 				if (mazoSustituir == 0) {
+					numCartasMesa0 = 0;
 					actualizarMesa0();
 					cartasMesa[0].forEach(function(valor, indice, array){
 						mesa0 = valor;
 					});
 				}else if (mazoSustituir == 1) {
+					numCartasMesa1 = 0;
 					actualizarMesa1();
 					cartasMesa[1].forEach(function(valor, indice, array){
 						mesa1 = valor;
 					});
 				}else if (mazoSustituir == 2) {
+					numCartasMesa2 = 0;
 					actualizarMesa2();
 					cartasMesa[2].forEach(function(valor, indice, array){
 						mesa2 = valor;
 					});
 				}else if (mazoSustituir == 3) {
+					numCartasMesa3 = 0;
 					actualizarMesa3();
 					cartasMesa[3].forEach(function(valor, indice, array){
 						mesa3 = valor;
@@ -439,9 +465,9 @@ function colocarCartasEnMesa(){
 			}else{
 
 				//cuando es la máquina quien elige mazo de la mesa.
-				alert('la máquina elige un mazo de la mesa');
+				alert('La máquina elige un mazo de la mesa');
 				eligeMaquinaMazo = Math.floor((Math.random()*4)+1);
-				var mazoASustituir = eligeMaquinaMazo-1;
+				var mazoASustituir = (eligeMaquinaMazo-1);
 				//controlar los puntos que se come la máquina
 				puntosMaquina = 0;
 				cartasMesa[mazoASustituir].forEach(function(valor, indice, array){
@@ -495,28 +521,33 @@ function colocarCartasEnMesa(){
 					jugadorComeCartas = 10;
 					puntosTotalesJugador10 += puntosMaquina;
 				}
+				alert('El jugador '+jugadorComeCartas+' ha elegido el mazo '+(mazoASustituir+1)+' y obtiene '+puntosMaquina+' puntos negativos');
 				
-				alert('ha elegido el mazo'+eligeMaquinaMazo+'. Se ha comido las cartas el jugador'+jugadorComeCartas+', '+puntosMaquina+' pts, y tiene en total puntos negativos');
 				
 				// sustituir el 'monton' por 'la primera carta'
 
-				cartasMesa[eligeMaquinaMazo] = [cartasTurno[0]];
-				if (eligeMaquinaMazo == 0) {
+				cartasMesa[mazoASustituir] = [cartasTurno[0]];
+				if (mazoASustituir == 0) {
+					//Pongo el numero de cartas a 0 porque en la función actualizarMesa aumenta a 1.
+					numCartasMesa0 = 0;
 					actualizarMesa0();
 					cartasMesa[0].forEach(function(valor, indice, array){
 						mesa0 = valor;
 					});
-				}else if (eligeMaquinaMazo == 1) {
+				}else if (mazoASustituir == 1) {
+					numCartasMesa1 = 0;
 					actualizarMesa1();
 					cartasMesa[1].forEach(function(valor, indice, array){
 						mesa1 = valor;
 					});
-				}else if (eligeMaquinaMazo == 2) {
+				}else if (mazoASustituir == 2) {
+					numCartasMesa2 = 0;
 					actualizarMesa2();
 					cartasMesa[2].forEach(function(valor, indice, array){
 						mesa2 = valor;
 					});
-				}else if (eligeMaquinaMazo == 3) {
+				}else if (mazoASustituir == 3) {
+					numCartasMesa3 = 0;
 					actualizarMesa3();
 					cartasMesa[3].forEach(function(valor, indice, array){
 						mesa3 = valor;
@@ -585,15 +616,16 @@ function colocarCartasEnMesa(){
 				jugadorComeCartas = 10;
 				puntosTotalesJugador10 += puntosMaquinita;
 			}
-			alert('Se las ha comido las cartas el jugador'+jugadorComeCartas+' las cartas del mazo '+mesita+' un total de puntos '+puntosMaquinita+' pts');
+			alert('El jugador '+jugadorComeCartas+' se come las cartas del mazo '+(mesita+1)+' con un total de '+puntosMaquinita+' puntos.');
 		}
 
 		function actualizarMesa0(){
 			numCartasMesa0++;
+			console.log("cartas en el mazo 1: "+numCartasMesa0);
 			if (numCartasMesa0 == 6) {
 				mesita = 0;
 				puntosDelMazo();
-				alert('Se sustituye la mesa0 por '+cartita);
+				alert('Se sustituye la mesa 1 por '+cartita);
 				cartasMesa[0] = [cartita]
 				document.getElementById('cartasMesa0').innerHTML = "";
 				cartasMesa[0].forEach(function(valor, indice, array){
@@ -611,10 +643,11 @@ function colocarCartasEnMesa(){
 		}
 		function actualizarMesa1(){
 			numCartasMesa1++;
+			console.log("cartas en el mazo 2: "+numCartasMesa1);
 			if (numCartasMesa1 == 6) {
 				mesita = 1;
 				puntosDelMazo();
-				alert('Se sustituye la mesa1 por '+cartita);
+				alert('Se sustituye la mesa 2 por '+cartita);
 				cartasMesa[1] = [cartita]
 				document.getElementById('cartasMesa1').innerHTML = "";
 				cartasMesa[1].forEach(function(valor, indice, array){
@@ -632,10 +665,11 @@ function colocarCartasEnMesa(){
 		}
 		function actualizarMesa2(){
 			numCartasMesa2++;
+			console.log("cartas en el mazo 3: "+numCartasMesa2);
 			if (numCartasMesa2 == 6) {
 				mesita = 2;
 				puntosDelMazo();
-				alert('Se sustituye la mesa2 por '+cartita);
+				alert('Se sustituye la mesa 3 por '+cartita);
 				cartasMesa[2] = [cartita]
 				document.getElementById('cartasMesa2').innerHTML = "";
 				cartasMesa[2].forEach(function(valor, indice, array){
@@ -654,10 +688,11 @@ function colocarCartasEnMesa(){
 		}
 		function actualizarMesa3(){
 			numCartasMesa3++;
+			console.log("cartas en el mazo 4: "+numCartasMesa3);
 			if (numCartasMesa3 == 6) {
 				mesita = 3;
 				puntosDelMazo();
-				alert('Se sustituye la mesa3 por '+cartita);
+				alert('Se sustituye la mesa 4 por '+cartita);
 				cartasMesa[3] = [cartita]
 				document.getElementById('cartasMesa3').innerHTML = "";
 				cartasMesa[3].forEach(function(valor, indice, array){
@@ -680,15 +715,22 @@ function colocarCartasEnMesa(){
 			pintarCartasUnaAUna();
 			//	Elimino la primera carta del mazo de 
 			cartasTurno.splice(0, 1);
+
+			//	PINTO LAS CARTAS  DEL TURNO:
+			document.getElementById('cartasDelTurno').innerHTML = "";
+			cartasTurno.forEach(function(valor, indice, array){
+				document.getElementById('cartasDelTurno').innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png'/></li>";
+			});
+
 		}else{
 			clearInterval(cartitasUnaUna);
 			cartasTurno = [];
-			tiempo = 1;
+			tiempo = 6;
 			contador = setInterval(function(){
 				cuenta();
 			}, 1000);
 		}
-	}, 200);
+	}, 1000);
 }
 
 
