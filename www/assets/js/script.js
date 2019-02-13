@@ -1,5 +1,5 @@
 //	TIEMPO
-var tiempo = 5;
+var tiempo = 10;
 var turno = 0;
 var indiceCartaElegida = 0;
 var cartaElegida = jugadores[1][indiceCartaElegida]; // El segundo valor es el índice del array, la posición que tengo que eliminar del array y pintarla posteriormente en la mesa. Por defecto, que se elija la primera del mazo en el caso de no tocarlo.
