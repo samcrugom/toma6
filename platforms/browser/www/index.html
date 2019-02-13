@@ -9,12 +9,14 @@
 	<meta name="contact" content="Especificar el correo del administrador => admin@dominio.com">
 	<meta name="robots" content="Index, Follow, NoIndex, NoFollow => NoIndex, NoFollow (xq estamos de prueba)">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<link rel="icon" type="icon/png" href="favicon.png">
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="assets/css/baraja.css" />
 	<link rel="stylesheet" type="text/css" href="assets/css/custom.css" />
+	
 	<script type="text/javascript" src="assets/js/modernizr.custom.79639.js"></script>
 </head>
 <body>
@@ -22,38 +24,58 @@
 	<audio id="musica">
 		<source src="assets/rsc/audio/loading.mp3" type="audio/mpeg">
 	</audio>
-	<div class="preloader" id="preloader">
-        <img src="assets/rsc/img/preloader.gif" id="imgPre">
-    </div>
+	<audio id="madera">
+		<source src="assets/rsc/audio/madera.mp3" type="audio/mpeg">
+	</audio>
+
+	<div class="loading">
+		<div class="preloader" id="preloader">
+			<div>
+				<img src="assets/rsc/img/logo.png" id="imgPre" class="">
+			</div>
+	    </div>
+	</div>
+		
+
+    
+
 
 
 
 
 
 	<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="assets/js/jquery.baraja.js"></script>
 	<script type="text/javascript" src="assets/js/script.js"></script>
 	<script type="text/javascript">
+
+		//	LOADER
+		
 		setTimeout(function(){
             document.getElementById('imgPre').style.opacity = "0";
         }, 1);
-        setTimeout(function(){
+		setTimeout(function(){
             document.getElementById('imgPre').style.opacity = "1";
+            $("#imgPre").attr("class", "animated fadeInUp fast");
+        }, 2500);
+        setTimeout(function(){
             document.getElementById('musica').play();
-            document.getElementById('preloader').style.opacity = "1";
-        }, 500);
+        }, 3000);
         setTimeout(function(){
-            document.getElementById('imgPre').style.opacity = "1";
-            document.getElementById('preloader').style.opacity = "1";
-        }, 3850);
-        setTimeout(function(){
-            document.getElementById('imgPre').style.opacity = "0";
-            document.getElementById('preloader').style.opacity = "0";
+            document.getElementById('musica').pause();
+        }, 5200);
+		setTimeout(function(){
+            $("#imgPre").attr("class", "animated fadeOut slow");
         }, 6000);
         setTimeout(function(){
-            //document.getElementById('preloader').style.display = "none";
-            window.location = "partida.html";
-        }, 7000);
-	</script>
+            //window.location = "main.html";
+            $(".preloader").css("display", "none");
+            $(".loading").attr("class", "animated fadeOut slow");
+        }, 7500);
+        setTimeout(function(){
+            window.location = "main.html";
+        }, 7800);
+
+
+       	</script>
 </body>
 </html>

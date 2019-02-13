@@ -725,7 +725,7 @@ function colocarCartasEnMesa(){
 		}else{
 			clearInterval(cartitasUnaUna);
 			cartasTurno = [];
-			tiempo = 6;
+			tiempo = 11;
 			contador = setInterval(function(){
 				cuenta();
 			}, 1000);
