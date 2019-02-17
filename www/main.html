@@ -43,9 +43,6 @@
 					<img class="jugador" src="assets/rsc/img/logo.png">
 					<img class="vs" src="assets/rsc/img/vs.png">
 					<img class="maquina" src="assets/rsc/img/multiplayer.png">
-				<!--
-					<img class="proximamente" src="http://aorac.es/imagenes/PROXIMAMENTE.png">
-				-->
 				</span>
 			</div>
 		</section>
@@ -66,17 +63,11 @@
 		</section>
     </div>
 
-
-
-
-
-
-
 	<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="assets/js/sweetalert2.all.min.js"></script>
 	<script type="text/javascript">
+
  		//	MENU
- 		
  			
         setTimeout(function(){
 			$("#vsMachine").css('opacity', '1');
@@ -125,17 +116,17 @@
 			$("#rankingTabla").css('z-index', '0');
 		});
 
+	//	SACA LOS DATOS DE LAS DEMÁS PUNTUACIONES QUE HAYAN JUGADO.
 		function pintarRanking() {
-			//	SACA LOS DATOS DE LAS DEMÁS PUNTUACIONES QUE HAYAN JUGADO.
 			$("#rankingTabla3").html('');
-			$.ajax({                                                    
+			$.ajax({      
 		        url:"http://www.samcrugom.com/toma6/ranking.app.php",
-		        type: "GET",                                            
-		        async: true,                                            
-		        success: function(){                                   
+		        type: "GET",                            
+		        async: true,                                   
+		        success: function(){                    
 		            $.getJSON("http://www.samcrugom.com/toma6/ranking.app.php", function(jugadores){
 		                $.each(jugadores, function(i, jugador){
-		                    $("#rankingTabla3").append("<div class='cajon'><span class='nombreJugador'>"+jugador.nombre_jugador+" .............</span><span class='puntosJugador'>"+jugador.puntos_jugador+"</span></div>");
+		                    $("#rankingTabla3").append("<div class='cajon'><span class='nombreJugador'>"+jugador.nombre_jugador+" .......</span><span class='puntosJugador'>"+jugador.puntos_jugador+"</span></div>");
 		                });
 		            });
 		        },

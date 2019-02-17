@@ -16,13 +16,13 @@
 	<title>Toma 6</title>
 	
 </head>
+
+
+
 <body>
 
 	<audio id="musica">
 		<source src="assets/rsc/audio/loading.mp3" type="audio/mpeg">
-	</audio>
-	<audio id="madera">
-		<source src="assets/rsc/audio/madera.mp3" type="audio/mpeg">
 	</audio>
 
 	<div class="loading">
@@ -32,7 +32,6 @@
 			</div>
 	    </div>
 	</div>
-		
 
 	<script type="text/javascript" src="assets/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript">
@@ -56,13 +55,8 @@
             $("#imgPre").attr("class", "animated fadeOut slow");
         }, 6000);
         setTimeout(function(){
-            //window.location = "main.html";
-            $(".preloader").css("display", "none");
-            $(".loading").attr("class", "animated fadeOut slow");
-        }, 7500);
-        setTimeout(function(){
             window.location = "main.html";
-        }, 7800);
+        }, 7500);
 
 
        	</script>

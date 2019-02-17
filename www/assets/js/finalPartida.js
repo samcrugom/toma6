@@ -42,7 +42,7 @@ function acabaPartida(){
 		        success: function(){                                   
 		            $.getJSON("http://www.samcrugom.com/toma6/ranking.app.php", function(jugadores){
 		                $.each(jugadores, function(i, jugador){
-		                    $("#rankingTabla3").append("<div class='cajon'><span class='nombreJugador'>"+jugador.nombre_jugador+" .............</span><span class='puntosJugador'>"+jugador.puntos_jugador+"</span></div>");
+		                    $("#rankingTabla3").append("<div class='cajon'><span class='nombreJugador'>"+jugador.nombre_jugador+" .......</span><span class='puntosJugador'>"+jugador.puntos_jugador+"</span></div>");
 		                });
 		            });
 		        },
@@ -53,18 +53,4 @@ function acabaPartida(){
 		}
 
 	}
-
-		
-	/*
-	console.log(puntosTotales);
-	console.log(puntosTotalesJugador2);
-	console.log(puntosTotalesJugador3);
-	console.log(puntosTotalesJugador4);
-	console.log(puntosTotalesJugador5);
-	console.log(puntosTotalesJugador6);
-	console.log(puntosTotalesJugador7);
-	console.log(puntosTotalesJugador8);
-	console.log(puntosTotalesJugador9);
-	console.log(puntosTotalesJugador10);
-	*/
 }

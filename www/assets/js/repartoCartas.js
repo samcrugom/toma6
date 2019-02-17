@@ -4,7 +4,7 @@ var cartasMesa = [];
 var numJugadores = 10;
 var jugadores = [];
 
-//repartir();	//	Llamamos a la funcion desde el archivo partida.html para que no se ejecute cada vez que enlacemos éste script en un html.
+//repartir();	//	Llamamos a la funcion desde el archivo partida.html.
 
 function repartir(){
 	
@@ -53,22 +53,9 @@ function repartir(){
 	//	PINTAR SOLO LAS CARTAS DEL JUGADOR 1
 	pintarJugador1();
 	
-	
-		
-
 	//	PINTAR LAS CARTAS DE LA MESA
 	pintarCartasMesa();
-
-		
 	//console.log(cartasMesa);
-	/*
-	for (i = 0; i <= 3; i++) {
-		for (j = 0; j <= 4; j++) {
-			document.getElementById('cartasMesa'+[i]).innerHTML += "<li><img src='assets/rsc/img/cartas/"+cartasMesa[i][j]+".png' alt='"+cartasMesa[i]+"'/></li>";
-		}
-	}
-	*/
-
 }
 
 //	PINTAR CARTAS DE MI MANO
@@ -104,14 +91,11 @@ function pintarJugador1(){
 		miMano2.appendChild(carta);
 		carta.appendChild(fotoCarta);
 
-
-
-
-
-		//document.getElementById('baraja-el').innerHTML += "<li id='miCarta"+indice+"'><img src='assets/rsc/img/cartas/"+jugadores[1][indice]+".png' alt='"+jugadores[1][indice]+"'/></li>";
 	});
 	console.log(jugadores[1]);
 }
+
+//	PINTAR CARTAS DE LA MESA
 
 function pintarCartasMesa(){
 	for (i = 0; i <= 3; i++) {
@@ -120,11 +104,5 @@ function pintarCartasMesa(){
 		});
 	}
 }
-
-/*
-var cartasUsadas = [1, 2, 3, 4, 5];
-var resultado = cartasUsadas.indexOf(0, 0);
-console.log(resultado); //Resultado = -1
-*/
 
 

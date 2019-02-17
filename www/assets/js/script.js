@@ -36,9 +36,6 @@ var mesita = "";
 var nombre = "";
 
 
-
-
-
 function cuenta(){
 	
 	if (jugadores[1].length == 0) {
@@ -53,20 +50,9 @@ function cuenta(){
 		alert("Has elegido la carta = "+cartaElegida);
 		cartaElegida2 = cartaElegida;
 		
-		
-				/*	1er MÉTODO:	la oculto	*/
-		
-		//$("#miCarta"+indiceCartaElegida).css("display", "none");
-		
-
-
-				/*	2º MÉTODO:	Elimino la carta elegida de mi mazo	*/
-		
 		pintarCartasMano();
 		turnoCartas();
 		
-
-
 		indiceCartaElegida = 0;
 		cartaElegida = jugadores[1][indiceCartaElegida];
 
@@ -74,7 +60,6 @@ function cuenta(){
 		$("#tiempo1").css("color", "white");
 		$("#tiempo1").css("text-shadow", "none");
 	}
-	
 		
 
 	//	ELECCIÓN DE CARTA DE TU MAZO
@@ -249,32 +234,11 @@ function turnoCartas(){
 	
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//console.log('cartasCadaJugador: '+cartasCadaJugador);
-
 	//	SE COLOCAN LAS CARTAS ENCIMA DE LA MESA
 
 	colocarCartasEnMesa();
 
-	
-
-
 	// Al final del turno, volvemos a dejar las cartas anteriormente elegidas y colocadas en la mesa, vacío, a la espera del nuevo turno.
-
-	//alert(cartasTurno);
-	//cartasTurno = [];
 }
 
 
@@ -456,12 +420,7 @@ function colocarCartasEnMesa(){
 						mesa3 = valor;
 					});
 				}
-				
-
-
-
-
-
+		
 			}else{
 
 				//cuando es la máquina quien elige mazo de la mesa.
@@ -491,7 +450,6 @@ function colocarCartasEnMesa(){
 				});
 
 				//	Saber a qué jugador es quien se come las cartas
-				
 
 				if (cartasTurno[0] == cartaJugador2) {
 					jugadorComeCartas = 2;
@@ -523,7 +481,6 @@ function colocarCartasEnMesa(){
 				}
 				alert('El jugador '+jugadorComeCartas+' ha elegido el mazo '+(mazoASustituir+1)+' y obtiene '+puntosMaquina+' puntos negativos');
 				
-				
 				// sustituir el 'monton' por 'la primera carta'
 
 				cartasMesa[mazoASustituir] = [cartasTurno[0]];
@@ -553,8 +510,6 @@ function colocarCartasEnMesa(){
 						mesa3 = valor;
 					});
 				}
-
-
 			}
 		}
 
@@ -684,7 +639,6 @@ function colocarCartasEnMesa(){
 					document.getElementById('cartasMesa2').innerHTML += "<li><img src='assets/rsc/img/cartas/"+valor+".png' alt='"+indice+"'/></li>";
 				});
 			}
-				
 		}
 		function actualizarMesa3(){
 			numCartasMesa3++;
